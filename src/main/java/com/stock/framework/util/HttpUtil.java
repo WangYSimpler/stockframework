@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
  * @description
  */
 public class HttpUtil {
+	
 	private static Logger log = LoggerFactory.getLogger(HttpUtil.class);
 
 	public static String doGet(String url) {

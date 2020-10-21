@@ -1,23 +1,13 @@
 package com.test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.stock.framework.provider.StockProvider;
 import com.stock.framework.provider.impl.StockProviderImpl;
-import com.stock.framework.service.impl.HsStockService;
-import com.stock.framework.service.impl.QTStockService;
-import com.stock.framework.service.impl.SinaStockService;
-import com.stock.framework.service.impl.WYStockService;
 
 public class TestPrice {
 	
-	
-	
 	public static void main(String[] args) {
-		
-
 		
 		StockProvider impl = new StockProviderImpl();
 		
@@ -38,19 +28,18 @@ public class TestPrice {
 		while(true){
 			try {
 				Thread.sleep(500);
+				
+				tradePrice = impl.getStockNowPrice("603888");
+				System.out.println("成交价" + tradePrice);
+				
+				// 收盘价
+				System.out.println("收盘价" + closePrice);
+				System.out.println("开盘价" + impl.getStockOpenPrice("603888"));
+				System.out.println("----------------");
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			tradePrice = impl.getStockNowPrice("603888");
-			System.out.println("成交价" + tradePrice);
 			
-			// 收盘价
-			System.out.println("收盘价" + closePrice);
-			
-			System.out.println("开盘价" + impl.getStockOpenPrice("603888"));
-			
-			System.out.println("----------------");
 		}
 	}
 }
